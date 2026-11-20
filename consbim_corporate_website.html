@@ -1,0 +1,1437 @@
+<!DOCTYPE html>
+<html lang="ko" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>컨스빔 주식회사 | CONSBIM - 하이테크 반도체 & MEP BIM 엔지니어링 솔루션</title>
+  
+  <!-- Pretendard Font -->
+  <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Pretendard', '-apple-system', 'BlinkMacSystemFont', 'system-ui', 'Roboto', 'sans-serif'],
+          },
+          colors: {
+            brand: {
+              50: '#eff6ff',
+              100: '#dbeafe',
+              500: '#2563eb',
+              600: '#1d4ed8',
+              700: '#1e40af',
+              800: '#1e3a8a',
+              900: '#172554',
+            },
+            tech: {
+              cyan: '#06b6d4',
+              blue: '#0284c7',
+              navy: '#0b1120',
+              slate: '#1e293b'
+            }
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    body {
+      font-family: 'Pretendard', sans-serif;
+      word-break: keep-all;
+    }
+    .grid-bg {
+      background-image: radial-gradient(rgba(37, 99, 235, 0.15) 1px, transparent 1px);
+      background-size: 28px 28px;
+    }
+    .glass-nav {
+      background: rgba(11, 17, 32, 0.85);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+    }
+    .glass-card {
+      background: rgba(30, 41, 59, 0.6);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+    }
+  </style>
+</head>
+<body class="bg-[#0b1120] text-slate-100 antialiased selection:bg-cyan-500 selection:text-white">
+
+  <!-- ==================== Header / Navbar ==================== -->
+  <header class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 glass-nav border-b border-slate-800" id="main-header">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+      
+      <!-- Logo -->
+      <a href="#" class="flex items-center gap-3 group">
+        <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-blue-600 to-cyan-400 flex items-center justify-center text-white shadow-lg shadow-blue-500/30 group-hover:scale-105 transition-transform">
+          <i data-lucide="box" class="w-5 h-5 text-white"></i>
+        </div>
+        <div class="flex flex-col">
+          <span class="text-xl font-extrabold tracking-wider text-white">CONSBIM</span>
+          <span class="text-[10px] tracking-widest text-cyan-400 font-semibold -mt-1 uppercase">컨스빔 주식회사</span>
+        </div>
+      </a>
+
+      <!-- Desktop Nav -->
+      <nav class="hidden lg:flex items-center gap-7 text-sm font-medium text-slate-300">
+        <a href="#about" class="hover:text-cyan-400 transition-colors">회사소개</a>
+        <a href="#capabilities" class="hover:text-cyan-400 transition-colors">핵심역량</a>
+        <a href="#services" class="hover:text-cyan-400 transition-colors">BIM 서비스</a>
+        <a href="#tech" class="hover:text-cyan-400 transition-colors">기술 및 솔루션</a>
+        <a href="#projects" class="hover:text-cyan-400 transition-colors">주요 프로젝트</a>
+        <a href="#location" class="hover:text-cyan-400 transition-colors">오시는 길</a>
+      </nav>
+
+      <!-- Action Button -->
+      <div class="hidden lg:flex items-center gap-4">
+        <a href="#contact" class="px-5 py-2.5 rounded-xl text-sm font-bold bg-gradient-to-r from-blue-600 to-cyan-500 text-white hover:opacity-95 shadow-lg shadow-blue-600/30 transition-all active:scale-95 flex items-center gap-2">
+          <i data-lucide="send" class="w-4 h-4"></i> 프로젝트 의뢰
+        </a>
+      </div>
+
+      <!-- Mobile Menu Toggle Button -->
+      <button id="mobile-toggle" aria-label="메뉴 열기" class="lg:hidden p-2 rounded-xl text-slate-300 hover:bg-slate-800 transition-colors">
+        <i data-lucide="menu" id="menu-icon" class="w-6 h-6"></i>
+      </button>
+    </div>
+
+    <!-- Mobile Drawer -->
+    <div id="mobile-menu" class="hidden lg:hidden border-b border-slate-800 bg-[#0f172a] px-5 pt-3 pb-6 space-y-2">
+      <a href="#about" class="mobile-link block px-3 py-2.5 rounded-lg text-slate-300 hover:bg-slate-800 hover:text-cyan-400 font-medium">회사소개</a>
+      <a href="#capabilities" class="mobile-link block px-3 py-2.5 rounded-lg text-slate-300 hover:bg-slate-800 hover:text-cyan-400 font-medium">핵심역량</a>
+      <a href="#services" class="mobile-link block px-3 py-2.5 rounded-lg text-slate-300 hover:bg-slate-800 hover:text-cyan-400 font-medium">BIM 서비스</a>
+      <a href="#tech" class="mobile-link block px-3 py-2.5 rounded-lg text-slate-300 hover:bg-slate-800 hover:text-cyan-400 font-medium">기술 및 솔루션</a>
+      <a href="#projects" class="mobile-link block px-3 py-2.5 rounded-lg text-slate-300 hover:bg-slate-800 hover:text-cyan-400 font-medium">주요 프로젝트</a>
+      <a href="#location" class="mobile-link block px-3 py-2.5 rounded-lg text-slate-300 hover:bg-slate-800 hover:text-cyan-400 font-medium">오시는 길</a>
+      <a href="#contact" class="mobile-link block w-full text-center px-4 py-3 rounded-xl font-bold bg-gradient-to-r from-blue-600 to-cyan-500 text-white mt-3">프로젝트 문의하기</a>
+    </div>
+  </header>
+
+  <main class="pt-20">
+    <!-- ==================== Hero Section ==================== -->
+    <section class="relative min-h-[92vh] flex items-center overflow-hidden py-16 grid-bg">
+      <div class="absolute inset-0 bg-gradient-to-b from-[#0b1120]/40 via-[#0b1120]/90 to-[#0b1120] pointer-events-none"></div>
+
+      <!-- Glowing Orbs -->
+      <div class="absolute top-1/4 left-1/4 w-96 h-96 bg-blue-600/20 rounded-full blur-3xl pointer-events-none"></div>
+      <div class="absolute bottom-1/4 right-1/4 w-96 h-96 bg-cyan-500/15 rounded-full blur-3xl pointer-events-none"></div>
+
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full py-10">
+        <div class="grid lg:grid-cols-12 gap-12 items-center">
+          
+          <div class="lg:col-span-7 text-center lg:text-left space-y-6">
+            <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-blue-950/80 border border-blue-500/40 text-cyan-400 text-xs font-semibold tracking-wide">
+              <span class="w-2 h-2 rounded-full bg-cyan-400 animate-ping"></span>
+              High-Tech Semiconductor BIM Solution
+            </div>
+
+            <h1 class="text-4xl sm:text-5xl lg:text-6xl font-black tracking-tight text-white leading-[1.25]">
+              하이테크 반도체 & <br>
+              플랜트 <span class="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-500">MEP BIM 엔지니어링</span>의 표준
+            </h1>
+
+            <p class="text-slate-300 text-base sm:text-lg leading-relaxed max-w-2xl mx-auto lg:mx-0">
+              컨스빔(주)은 삼성전자 평택캠퍼스, SK하이닉스 M16, 삼성디스플레이 등 국내 최고의 반도체·디스플레이 현장에서 검증된
+              <strong class="text-white font-semibold"> Hookup BIM, MEP 시공 설계, 3D Scan 역설계 및 정합성 검측</strong> 전문 기업입니다.
+            </p>
+
+            <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 pt-2">
+              <a href="#projects" class="w-full sm:w-auto px-8 py-3.5 rounded-xl bg-gradient-to-r from-blue-600 to-cyan-600 hover:from-blue-500 hover:to-cyan-500 text-white font-bold text-center shadow-lg shadow-blue-500/25 transition-all">
+                프로젝트 수행실적 보기
+              </a>
+              <a href="#capabilities" class="w-full sm:w-auto px-8 py-3.5 rounded-xl glass-card hover:bg-slate-800 text-slate-200 font-bold text-center border border-slate-700 transition-all">
+                직무 역량 알아보기
+              </a>
+            </div>
+
+            <!-- Highlights -->
+            <div class="pt-8 border-t border-slate-800 grid grid-cols-2 sm:grid-cols-4 gap-4 text-left">
+              <div class="p-3 rounded-xl bg-slate-900/60 border border-slate-800/80">
+                <p class="text-xs text-slate-400">설립 및 업력</p>
+                <p class="text-lg font-bold text-cyan-400 mt-0.5">2018년 설립</p>
+              </div>
+              <div class="p-3 rounded-xl bg-slate-900/60 border border-slate-800/80">
+                <p class="text-xs text-slate-400">메이저 프로젝트</p>
+                <p class="text-lg font-bold text-white mt-0.5">삼성·SK하이닉스</p>
+              </div>
+              <div class="p-3 rounded-xl bg-slate-900/60 border border-slate-800/80">
+                <p class="text-xs text-slate-400">정밀 3D 스캔</p>
+                <p class="text-lg font-bold text-cyan-400 mt-0.5">정합성 100% 검측</p>
+              </div>
+              <div class="p-3 rounded-xl bg-slate-900/60 border border-slate-800/80">
+                <p class="text-xs text-slate-400">전문 S/W 개발</p>
+                <p class="text-lg font-bold text-white mt-0.5">Revit Add-in 개발</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Hero Graphic Card -->
+          <div class="lg:col-span-5 relative">
+            <div class="relative mx-auto max-w-md lg:max-w-none">
+              
+              <!-- Core Tech Terminal Box -->
+              <div class="rounded-3xl bg-slate-900/90 border border-slate-700/80 p-6 shadow-2xl relative overflow-hidden">
+                <div class="flex items-center justify-between pb-4 border-b border-slate-800">
+                  <div class="flex items-center gap-2">
+                    <span class="w-3 h-3 rounded-full bg-red-500/80"></span>
+                    <span class="w-3 h-3 rounded-full bg-yellow-500/80"></span>
+                    <span class="w-3 h-3 rounded-full bg-green-500/80"></span>
+                  </div>
+                  <span class="text-xs font-mono text-cyan-400">CONSBIM_ENGINEERING_CORE.v24</span>
+                </div>
+
+                <div class="py-5 space-y-4">
+                  <!-- Pipe/BIM Status 1 -->
+                  <div class="p-3.5 rounded-2xl bg-slate-800/80 border border-slate-700/50 flex items-center justify-between">
+                    <div class="flex items-center gap-3">
+                      <div class="w-9 h-9 rounded-xl bg-blue-500/20 text-cyan-400 flex items-center justify-center">
+                        <i data-lucide="cpu" class="w-5 h-5"></i>
+                      </div>
+                      <div>
+                        <p class="text-sm font-bold text-white">반도체 Hookup BIM 5D</p>
+                        <p class="text-xs text-slate-400">DIFF / IMP / EUV 전공종 모델링</p>
+                      </div>
+                    </div>
+                    <span class="text-xs font-semibold px-2 py-1 rounded bg-blue-900/60 text-cyan-300 border border-blue-700/50">Active</span>
+                  </div>
+
+                  <!-- Pipe/BIM Status 2 -->
+                  <div class="p-3.5 rounded-2xl bg-slate-800/80 border border-slate-700/50 flex items-center justify-between">
+                    <div class="flex items-center gap-3">
+                      <div class="w-9 h-9 rounded-xl bg-cyan-500/20 text-cyan-400 flex items-center justify-center">
+                        <i data-lucide="scan" class="w-5 h-5"></i>
+                      </div>
+                      <div>
+                        <p class="text-sm font-bold text-white">3D LiDAR 스캔 정합성 검측</p>
+                        <p class="text-xs text-slate-400">Faro / Trimble / Recap 기반</p>
+                      </div>
+                    </div>
+                    <span class="text-xs font-semibold px-2 py-1 rounded bg-cyan-900/60 text-cyan-300 border border-cyan-700/50">Verified</span>
+                  </div>
+
+                  <!-- Pipe/BIM Status 3 -->
+                  <div class="p-3.5 rounded-2xl bg-slate-800/80 border border-slate-700/50 flex items-center justify-between">
+                    <div class="flex items-center gap-3">
+                      <div class="w-9 h-9 rounded-xl bg-indigo-500/20 text-indigo-400 flex items-center justify-center">
+                        <i data-lucide="git-branch" class="w-5 h-5"></i>
+                      </div>
+                      <div>
+                        <p class="text-sm font-bold text-white">MEP & 기계·소방 2D Shop Dwg</p>
+                        <p class="text-xs text-slate-400">오차 제로 시공 정밀 도면화</p>
+                      </div>
+                    </div>
+                    <span class="text-xs font-semibold px-2 py-1 rounded bg-indigo-900/60 text-indigo-300 border border-indigo-700/50">Sync</span>
+                  </div>
+                </div>
+
+                <!-- Footer Summary Card -->
+                <div class="p-4 rounded-2xl bg-gradient-to-r from-blue-900/50 to-slate-800 border border-blue-500/30 flex items-center justify-between">
+                  <div>
+                    <p class="text-xs text-cyan-300 font-semibold">대표이사 / BIM PM 성치영</p>
+                    <p class="text-xs text-slate-300 mt-0.5">평택 고덕 R&D 오피스 직통 운영</p>
+                  </div>
+                  <a href="tel:01027410282" class="p-2.5 rounded-xl bg-blue-600 hover:bg-blue-500 text-white transition-colors" title="전화 연결">
+                    <i data-lucide="phone-call" class="w-4 h-4"></i>
+                  </a>
+                </div>
+
+              </div>
+
+              <!-- Floating Tech Tag -->
+              <div class="absolute -bottom-4 -right-2 glass-card px-4 py-2.5 rounded-2xl shadow-xl flex items-center gap-2.5 border border-cyan-500/30">
+                <i data-lucide="shield-check" class="w-5 h-5 text-cyan-400"></i>
+                <span class="text-xs font-bold text-white">시공 무결점 지향 검측 시스템</span>
+              </div>
+
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== About Section ==================== -->
+    <section id="about" class="py-24 bg-[#0e1626] border-y border-slate-800/80">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <div class="grid lg:grid-cols-12 gap-12 items-center">
+          <div class="lg:col-span-5 space-y-6">
+            <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-blue-900/40 border border-blue-600/30 text-cyan-400 text-xs font-semibold">
+              <i data-lucide="award" class="w-3.5 h-3.5"></i>
+              Company Overview
+            </div>
+            <h2 class="text-3xl sm:text-4xl font-extrabold text-white leading-tight">
+              고정밀 반도체 엔지니어링의 신뢰 파트너, <br>
+              <span class="text-cyan-400">컨스빔 주식회사</span>
+            </h2>
+            <p class="text-slate-300 text-sm sm:text-base leading-relaxed">
+              컨스빔(주)은 2018년 10월 설립 이래 성치영 대표이사의 풍부한 프로젝트 코디네이팅 경험과 전문 엔지니어링 역량을 바탕으로,
+              복잡하고 정밀한 하이테크 반도체 팹(FAB), 플랜트, 일반 건축물의 시공 BIM 및 MEP 엔지니어링을 선도해 오고 있습니다.
+            </p>
+            <p class="text-slate-400 text-sm leading-relaxed">
+              설계 누락을 방지하는 3D 스캔 기반 역설계부터, 유틸리티·특수가스·케미컬 공종의 5D/BIM Hookup 설계, 
+              그리고 현장 오차를 사전에 검증하는 정합성 검측과 자체 Revit/Navisworks Add-in 개발까지 기술 중심의 종합 솔루션을 제공합니다.
+            </p>
+
+            <div class="pt-4 grid grid-cols-2 gap-4">
+              <div class="p-4 rounded-2xl bg-slate-900 border border-slate-800">
+                <p class="text-xs text-slate-400">회사명</p>
+                <p class="text-base font-bold text-white mt-1">컨스빔 주식회사 (CONSBIM)</p>
+              </div>
+              <div class="p-4 rounded-2xl bg-slate-900 border border-slate-800">
+                <p class="text-xs text-slate-400">대표이사 / CEO</p>
+                <p class="text-base font-bold text-white mt-1">성치영</p>
+              </div>
+              <div class="p-4 rounded-2xl bg-slate-900 border border-slate-800">
+                <p class="text-xs text-slate-400">본사 소재지</p>
+                <p class="text-xs font-semibold text-slate-200 mt-1">경기 평택시 고덕중앙로 322, 403호</p>
+              </div>
+              <div class="p-4 rounded-2xl bg-slate-900 border border-slate-800">
+                <p class="text-xs text-slate-400">공식 웹사이트</p>
+                <p class="text-xs font-semibold text-cyan-400 mt-1">www.consbim.co.kr</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Feature Cards Grid -->
+          <div class="lg:col-span-7 grid sm:grid-cols-2 gap-5">
+            <div class="p-6 rounded-3xl bg-slate-900/80 border border-slate-800 hover:border-blue-500/50 transition-all group">
+              <div class="w-12 h-12 rounded-2xl bg-blue-600/20 text-cyan-400 flex items-center justify-center mb-5 group-hover:scale-110 transition-transform">
+                <i data-lucide="layers" class="w-6 h-6"></i>
+              </div>
+              <h3 class="text-lg font-bold text-white mb-2">원스톱 BIM 코디네이터</h3>
+              <p class="text-xs sm:text-sm text-slate-400 leading-relaxed">
+                설계부터 시공, 2D Shop Drawing 및 현장 리스크 사전 차단까지 BIM 프로젝트 PM 전 과정을 통합 조율합니다.
+              </p>
+            </div>
+
+            <div class="p-6 rounded-3xl bg-slate-900/80 border border-slate-800 hover:border-blue-500/50 transition-all group">
+              <div class="w-12 h-12 rounded-2xl bg-cyan-600/20 text-cyan-400 flex items-center justify-center mb-5 group-hover:scale-110 transition-transform">
+                <i data-lucide="circuit-board" class="w-6 h-6"></i>
+              </div>
+              <h3 class="text-lg font-bold text-white mb-2">반도체 특화 공종 수행</h3>
+              <p class="text-xs sm:text-sm text-slate-400 leading-relaxed">
+                Bulk GAS, PGS, ALMS, 케미컬, S-GAS, PCW 및 클린룸 덕트 등 고난이도 배관 시스템 설계에 특화되어 있습니다.
+              </p>
+            </div>
+
+            <div class="p-6 rounded-3xl bg-slate-900/80 border border-slate-800 hover:border-blue-500/50 transition-all group">
+              <div class="w-12 h-12 rounded-2xl bg-indigo-600/20 text-indigo-400 flex items-center justify-center mb-5 group-hover:scale-110 transition-transform">
+                <i data-lucide="crosshair" class="w-6 h-6"></i>
+              </div>
+              <h3 class="text-lg font-bold text-white mb-2">3D Scan 정합성 검측 실증</h3>
+              <p class="text-xs sm:text-sm text-slate-400 leading-relaxed">
+                Point Cloud 기반 실제 시공물과 BIM 모델 간의 간섭 및 오차를 제로 수준으로 정밀 검측·피드백합니다.
+              </p>
+            </div>
+
+            <div class="p-6 rounded-3xl bg-slate-900/80 border border-slate-800 hover:border-blue-500/50 transition-all group">
+              <div class="w-12 h-12 rounded-2xl bg-emerald-600/20 text-emerald-400 flex items-center justify-center mb-5 group-hover:scale-110 transition-transform">
+                <i data-lucide="code" class="w-6 h-6"></i>
+              </div>
+              <h3 class="text-lg font-bold text-white mb-2">자체 솔루션 S/W 개발</h3>
+              <p class="text-xs sm:text-sm text-slate-400 leading-relaxed">
+                Revit / Navisworks Add-in 개발, KS MEP 라이브러리 및 물량집계 BOM 프로그램을 개발 운용하는 기술 개발사입니다.
+              </p>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ==================== Capabilities Section ==================== -->
+    <section id="capabilities" class="py-24 bg-[#0b1120]">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <div class="text-center max-w-3xl mx-auto mb-16">
+          <span class="text-xs font-bold uppercase tracking-widest text-cyan-400">Capability</span>
+          <h2 class="text-3xl sm:text-4xl font-extrabold text-white mt-2">다양한 분야의 실전 직무 역량</h2>
+          <p class="mt-3 text-slate-400 text-sm sm:text-base">
+            반도체 및 플랜트 분야 현장에서 축적된 기술력과 프로젝트 관리 전문성을 제공합니다.
+          </p>
+        </div>
+
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          
+          <!-- Cap 1 -->
+          <div class="p-7 rounded-3xl bg-slate-900/70 border border-slate-800 hover:border-cyan-500/50 transition-all">
+            <div class="w-10 h-10 rounded-xl bg-blue-500/20 text-cyan-400 flex items-center justify-center mb-5">
+              <i data-lucide="layout-grid" class="w-5 h-5"></i>
+            </div>
+            <h3 class="text-lg font-bold text-white mb-2">1. BIM 분야 직무 역량</h3>
+            <ul class="text-xs sm:text-sm text-slate-400 space-y-2">
+              <li class="flex items-start gap-2">
+                <i data-lucide="check" class="w-4 h-4 text-cyan-400 shrink-0 mt-0.5"></i>
+                <span>설계 및 시공분야 MEP 정밀 3D 모델링</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <i data-lucide="check" class="w-4 h-4 text-cyan-400 shrink-0 mt-0.5"></i>
+                <span>BIM 프로젝트 코디네이터 및 총괄 실장 수행</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <i data-lucide="check" class="w-4 h-4 text-cyan-400 shrink-0 mt-0.5"></i>
+                <span>BIM 설계 총괄 PM (Project Manager) 역량</span>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Cap 2 -->
+          <div class="p-7 rounded-3xl bg-slate-900/70 border border-slate-800 hover:border-cyan-500/50 transition-all">
+            <div class="w-10 h-10 rounded-xl bg-cyan-500/20 text-cyan-400 flex items-center justify-center mb-5">
+              <i data-lucide="cpu" class="w-5 h-5"></i>
+            </div>
+            <h3 class="text-lg font-bold text-white mb-2">2. 반도체 특화 설계 직무</h3>
+            <ul class="text-xs sm:text-sm text-slate-400 space-y-2">
+              <li class="flex items-start gap-2">
+                <i data-lucide="check" class="w-4 h-4 text-cyan-400 shrink-0 mt-0.5"></i>
+                <span>하이테크 반도체 FAB / 복합동 시공 BIM</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <i data-lucide="check" class="w-4 h-4 text-cyan-400 shrink-0 mt-0.5"></i>
+                <span>반도체 Hookup BIM 5D 고도화 설계</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <i data-lucide="check" class="w-4 h-4 text-cyan-400 shrink-0 mt-0.5"></i>
+                <span>U/T, 케미컬, S-GAS, Bulk GAS 라인 구축</span>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Cap 3 -->
+          <div class="p-7 rounded-3xl bg-slate-900/70 border border-slate-800 hover:border-cyan-500/50 transition-all">
+            <div class="w-10 h-10 rounded-xl bg-indigo-500/20 text-indigo-400 flex items-center justify-center mb-5">
+              <i data-lucide="factory" class="w-5 h-5"></i>
+            </div>
+            <h3 class="text-lg font-bold text-white mb-2">3. Plant 엔지니어링 직무</h3>
+            <ul class="text-xs sm:text-sm text-slate-400 space-y-2">
+              <li class="flex items-start gap-2">
+                <i data-lucide="check" class="w-4 h-4 text-cyan-400 shrink-0 mt-0.5"></i>
+                <span>지능형 P&ID (배관 계장도) 설계</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <i data-lucide="check" class="w-4 h-4 text-cyan-400 shrink-0 mt-0.5"></i>
+                <span>Piping 3D 상세 플랜트 모델링</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <i data-lucide="check" class="w-4 h-4 text-cyan-400 shrink-0 mt-0.5"></i>
+                <span>AutoCAD Plant 3D 라이브러리 및 DB 연동</span>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Cap 4 -->
+          <div class="p-7 rounded-3xl bg-slate-900/70 border border-slate-800 hover:border-cyan-500/50 transition-all">
+            <div class="w-10 h-10 rounded-xl bg-amber-500/20 text-amber-400 flex items-center justify-center mb-5">
+              <i data-lucide="scan-line" class="w-5 h-5"></i>
+            </div>
+            <h3 class="text-lg font-bold text-white mb-2">4. 3D Scan & 정합성 검측</h3>
+            <ul class="text-xs sm:text-sm text-slate-400 space-y-2">
+              <li class="flex items-start gap-2">
+                <i data-lucide="check" class="w-4 h-4 text-cyan-400 shrink-0 mt-0.5"></i>
+                <span>현장 3D Scan 원시 데이터 취득 및 전처리</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <i data-lucide="check" class="w-4 h-4 text-cyan-400 shrink-0 mt-0.5"></i>
+                <span>BIM 설계 대비 시공 정합성 오차 검측 총괄</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <i data-lucide="check" class="w-4 h-4 text-cyan-400 shrink-0 mt-0.5"></i>
+                <span>Point Cloud 기반 역설계(Re-Engineering)</span>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Cap 5 -->
+          <div class="p-7 rounded-3xl bg-slate-900/70 border border-slate-800 hover:border-cyan-500/50 transition-all">
+            <div class="w-10 h-10 rounded-xl bg-emerald-500/20 text-emerald-400 flex items-center justify-center mb-5">
+              <i data-lucide="file-text" class="w-5 h-5"></i>
+            </div>
+            <h3 class="text-lg font-bold text-white mb-2">5. 2D Shop Dwg 시공 도면</h3>
+            <ul class="text-xs sm:text-sm text-slate-400 space-y-2">
+              <li class="flex items-start gap-2">
+                <i data-lucide="check" class="w-4 h-4 text-cyan-400 shrink-0 mt-0.5"></i>
+                <span>기계설비 & 소방설비 시공 제작도(Shop Drawing)</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <i data-lucide="check" class="w-4 h-4 text-cyan-400 shrink-0 mt-0.5"></i>
+                <span>모듈렉 및 복합 배관 간섭 해결 도면화</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <i data-lucide="check" class="w-4 h-4 text-cyan-400 shrink-0 mt-0.5"></i>
+                <span>현장 설치용 상세 단면도 및 스풀도 추출</span>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Cap 6 -->
+          <div class="p-7 rounded-3xl bg-slate-900/70 border border-slate-800 hover:border-cyan-500/50 transition-all">
+            <div class="w-10 h-10 rounded-xl bg-purple-500/20 text-purple-400 flex items-center justify-center mb-5">
+              <i data-lucide="terminal" class="w-5 h-5"></i>
+            </div>
+            <h3 class="text-lg font-bold text-white mb-2">6. S/W 개발 & 전문가 교육</h3>
+            <ul class="text-xs sm:text-sm text-slate-400 space-y-2">
+              <li class="flex items-start gap-2">
+                <i data-lucide="check" class="w-4 h-4 text-cyan-400 shrink-0 mt-0.5"></i>
+                <span>Revit / Navisworks Custom Add-in 개발</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <i data-lucide="check" class="w-4 h-4 text-cyan-400 shrink-0 mt-0.5"></i>
+                <span>BIM 물량집계 BOM 및 제작도 프로그램 구축</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <i data-lucide="check" class="w-4 h-4 text-cyan-400 shrink-0 mt-0.5"></i>
+                <span>기업 실무자 및 전문가 양성과정 S/W 교육</span>
+              </li>
+            </ul>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ==================== Core Services Section ==================== -->
+    <section id="services" class="py-24 bg-[#0e1626] border-t border-slate-800">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <div class="text-center max-w-2xl mx-auto mb-16">
+          <span class="text-xs font-bold uppercase tracking-widest text-cyan-400">Our Services</span>
+          <h2 class="text-3xl sm:text-4xl font-extrabold text-white mt-2">컨스빔의 4대 핵심 엔지니어링 서비스</h2>
+          <p class="mt-3 text-slate-400 text-sm">기획 및 설계 단계부터 시공 검측, 사후 운영 관리까지 빈틈없이 연결합니다.</p>
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-8">
+          
+          <!-- Service 1 -->
+          <div class="p-8 rounded-3xl bg-slate-900 border border-slate-800 relative group overflow-hidden">
+            <div class="absolute top-0 right-0 w-32 h-32 bg-blue-600/10 rounded-full blur-2xl group-hover:bg-blue-600/20 transition-all"></div>
+            <div class="w-12 h-12 rounded-2xl bg-blue-600/20 text-cyan-400 flex items-center justify-center mb-6">
+              <i data-lucide="cpu" class="w-6 h-6"></i>
+            </div>
+            <h3 class="text-xl font-bold text-white mb-3">반도체 Hookup & 시공 BIM</h3>
+            <p class="text-sm text-slate-300 leading-relaxed mb-4">
+              삼성전자 및 SK하이닉스 반도체 FAB의 DIFF, IMP, EUV 라인 등 고난도 클린룸 환경에 요구되는 유틸리티(PCW, 폐수, 덕트), 특수가스(S-GAS, Bulk GAS, PGS), 케미컬 라인의 5D/BIM Hookup 모델링 및 시공 간섭 시뮬레이션을 완벽히 수행합니다.
+            </p>
+            <div class="flex flex-wrap gap-2 text-xs">
+              <span class="px-2.5 py-1 rounded-md bg-slate-800 text-cyan-300 border border-slate-700">5D BIM Hookup</span>
+              <span class="px-2.5 py-1 rounded-md bg-slate-800 text-slate-300 border border-slate-700">EUV 라인</span>
+              <span class="px-2.5 py-1 rounded-md bg-slate-800 text-slate-300 border border-slate-700">클린룸 덕트/배관</span>
+            </div>
+          </div>
+
+          <!-- Service 2 -->
+          <div class="p-8 rounded-3xl bg-slate-900 border border-slate-800 relative group overflow-hidden">
+            <div class="absolute top-0 right-0 w-32 h-32 bg-cyan-600/10 rounded-full blur-2xl group-hover:bg-cyan-600/20 transition-all"></div>
+            <div class="w-12 h-12 rounded-2xl bg-cyan-600/20 text-cyan-400 flex items-center justify-center mb-6">
+              <i data-lucide="pipette" class="w-6 h-6"></i>
+            </div>
+            <h3 class="text-xl font-bold text-white mb-3">MEP 기계·소방설비 BIM 설계</h3>
+            <p class="text-sm text-slate-300 leading-relaxed mb-4">
+              대형 플랜트 및 복합 상업시설(IKEA 등)의 공조, 위생, 급배수 기계설비와 스프링클러, 제연, 소화배관 등 소방 설비의 전 공종을 3차원 BIM으로 구현하여 시공 시 발생할 수 있는 충돌을 사전에 100% 제거합니다.
+            </p>
+            <div class="flex flex-wrap gap-2 text-xs">
+              <span class="px-2.5 py-1 rounded-md bg-slate-800 text-cyan-300 border border-slate-700">기계설비 BIM</span>
+              <span class="px-2.5 py-1 rounded-md bg-slate-800 text-slate-300 border border-slate-700">소방설비 BIM</span>
+              <span class="px-2.5 py-1 rounded-md bg-slate-800 text-slate-300 border border-slate-700">간섭 체크 및 검토</span>
+            </div>
+          </div>
+
+          <!-- Service 3 -->
+          <div class="p-8 rounded-3xl bg-slate-900 border border-slate-800 relative group overflow-hidden">
+            <div class="absolute top-0 right-0 w-32 h-32 bg-indigo-600/10 rounded-full blur-2xl group-hover:bg-indigo-600/20 transition-all"></div>
+            <div class="w-12 h-12 rounded-2xl bg-indigo-600/20 text-indigo-400 flex items-center justify-center mb-6">
+              <i data-lucide="scan" class="w-6 h-6"></i>
+            </div>
+            <h3 class="text-xl font-bold text-white mb-3">3D Scan 데이터 취득 & 역설계 (Reverse BIM)</h3>
+            <p class="text-sm text-slate-300 leading-relaxed mb-4">
+              설계 도면이 누락되었거나 변경 사항이 누적된 기존 시설물(RM실, CT, Green, 옥상 스크러버 등)을 3D 레이저 스캐너로 초정밀 실측하고, 이를 바탕으로 Revit MEP 모델링 및 운영 관리(FMS) 데이터를 구축합니다.
+            </p>
+            <div class="flex flex-wrap gap-2 text-xs">
+              <span class="px-2.5 py-1 rounded-md bg-slate-800 text-indigo-300 border border-slate-700">Point Cloud 데이터</span>
+              <span class="px-2.5 py-1 rounded-md bg-slate-800 text-slate-300 border border-slate-700">기존 설비 역설계</span>
+              <span class="px-2.5 py-1 rounded-md bg-slate-800 text-slate-300 border border-slate-700">FMS DB 구축</span>
+            </div>
+          </div>
+
+          <!-- Service 4 -->
+          <div class="p-8 rounded-3xl bg-slate-900 border border-slate-800 relative group overflow-hidden">
+            <div class="absolute top-0 right-0 w-32 h-32 bg-emerald-600/10 rounded-full blur-2xl group-hover:bg-emerald-600/20 transition-all"></div>
+            <div class="w-12 h-12 rounded-2xl bg-emerald-600/20 text-emerald-400 flex items-center justify-center mb-6">
+              <i data-lucide="check-check" class="w-6 h-6"></i>
+            </div>
+            <h3 class="text-xl font-bold text-white mb-3">시공 정합성 검측 & 2D Shop Dwg</h3>
+            <p class="text-sm text-slate-300 leading-relaxed mb-4">
+              시공된 실제 파이프, 덕트, 트레이, 노즐과 BIM 설계 데이터의 일치 여부를 3D Scan 오버레이를 통해 과학적으로 검측합니다. 검증된 모델은 오차가 전혀 없는 현장 2D Shop Drawing으로 출력되어 시공 품질을 보장합니다.
+            </p>
+            <div class="flex flex-wrap gap-2 text-xs">
+              <span class="px-2.5 py-1 rounded-md bg-slate-800 text-emerald-300 border border-slate-700">시공 정합성 검측</span>
+              <span class="px-2.5 py-1 rounded-md bg-slate-800 text-slate-300 border border-slate-700">2D 제작도 추출</span>
+              <span class="px-2.5 py-1 rounded-md bg-slate-800 text-slate-300 border border-slate-700">노즐 검측</span>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ==================== Technology & Software Stack ==================== -->
+    <section id="tech" class="py-24 bg-[#0b1120]">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <div class="text-center max-w-2xl mx-auto mb-16">
+          <span class="text-xs font-bold uppercase tracking-widest text-cyan-400">Tech Stack & Solutions</span>
+          <h2 class="text-3xl sm:text-4xl font-extrabold text-white mt-2">보유 소프트웨어 기술 및 자체 솔루션</h2>
+          <p class="mt-3 text-slate-400 text-sm">검증된 산업 표준 툴과 자체 개발 프로그램을 융합하여 독보적인 엔지니어링 경쟁력을 갖추고 있습니다.</p>
+        </div>
+
+        <div class="grid lg:grid-cols-3 gap-8">
+          
+          <!-- Tool Group 1: BIM & CAD -->
+          <div class="p-6 rounded-3xl bg-slate-900 border border-slate-800">
+            <div class="flex items-center gap-3 mb-6 pb-4 border-b border-slate-800">
+              <div class="w-10 h-10 rounded-xl bg-blue-600/20 text-cyan-400 flex items-center justify-center">
+                <i data-lucide="layers" class="w-5 h-5"></i>
+              </div>
+              <div>
+                <h3 class="font-bold text-white text-base">BIM & Plant Software</h3>
+                <p class="text-xs text-slate-400">설계 및 협업 표준 소프트웨어</p>
+              </div>
+            </div>
+
+            <div class="space-y-3">
+              <div class="p-3 rounded-xl bg-slate-800/60 border border-slate-700/50 flex items-center justify-between">
+                <span class="text-sm font-semibold text-slate-200">Autodesk Revit MEP</span>
+                <span class="text-xs px-2 py-0.5 rounded bg-blue-900/60 text-cyan-300">Main BIM</span>
+              </div>
+              <div class="p-3 rounded-xl bg-slate-800/60 border border-slate-700/50 flex items-center justify-between">
+                <span class="text-sm font-semibold text-slate-200">Autodesk Navisworks</span>
+                <span class="text-xs px-2 py-0.5 rounded bg-blue-900/60 text-cyan-300">간섭검토 / 시뮬레이션</span>
+              </div>
+              <div class="p-3 rounded-xl bg-slate-800/60 border border-slate-700/50 flex items-center justify-between">
+                <span class="text-sm font-semibold text-slate-200">AutoCAD MEP & Plant 3D</span>
+                <span class="text-xs px-2 py-0.5 rounded bg-slate-700 text-slate-300">배관 / 덕트 모델링</span>
+              </div>
+              <div class="p-3 rounded-xl bg-slate-800/60 border border-slate-700/50 flex items-center justify-between">
+                <span class="text-sm font-semibold text-slate-200">AutoCAD P&ID</span>
+                <span class="text-xs px-2 py-0.5 rounded bg-slate-700 text-slate-300">지능형 계장도</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Tool Group 2: 3D Scan & Laser -->
+          <div class="p-6 rounded-3xl bg-slate-900 border border-slate-800">
+            <div class="flex items-center gap-3 mb-6 pb-4 border-b border-slate-800">
+              <div class="w-10 h-10 rounded-xl bg-cyan-600/20 text-cyan-400 flex items-center justify-center">
+                <i data-lucide="scan" class="w-5 h-5"></i>
+              </div>
+              <div>
+                <h3 class="font-bold text-white text-base">3D Scan & Point Cloud</h3>
+                <p class="text-xs text-slate-400">정밀 계측 및 데이터 처리 S/W</p>
+              </div>
+            </div>
+
+            <div class="space-y-3">
+              <div class="p-3 rounded-xl bg-slate-800/60 border border-slate-700/50 flex items-center justify-between">
+                <span class="text-sm font-semibold text-slate-200">Faro Scene</span>
+                <span class="text-xs px-2 py-0.5 rounded bg-cyan-900/60 text-cyan-300">스캔 데이터 정합</span>
+              </div>
+              <div class="p-3 rounded-xl bg-slate-800/60 border border-slate-700/50 flex items-center justify-between">
+                <span class="text-sm font-semibold text-slate-200">Trimble Realworks</span>
+                <span class="text-xs px-2 py-0.5 rounded bg-cyan-900/60 text-cyan-300">정밀 형상 분석</span>
+              </div>
+              <div class="p-3 rounded-xl bg-slate-800/60 border border-slate-700/50 flex items-center justify-between">
+                <span class="text-sm font-semibold text-slate-200">Autodesk Recap</span>
+                <span class="text-xs px-2 py-0.5 rounded bg-slate-700 text-slate-300">Revit 연동 처리</span>
+              </div>
+              <div class="p-3 rounded-xl bg-slate-800/60 border border-slate-700/50 flex items-center justify-between">
+                <span class="text-sm font-semibold text-slate-200">Cloud Compare / Civil 3D</span>
+                <span class="text-xs px-2 py-0.5 rounded bg-slate-700 text-slate-300">오차 분석 / 토목</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Tool Group 3: S/W Development -->
+          <div class="p-6 rounded-3xl bg-slate-900 border border-slate-800">
+            <div class="flex items-center gap-3 mb-6 pb-4 border-b border-slate-800">
+              <div class="w-10 h-10 rounded-xl bg-emerald-600/20 text-emerald-400 flex items-center justify-center">
+                <i data-lucide="code-2" class="w-5 h-5"></i>
+              </div>
+              <div>
+                <h3 class="font-bold text-white text-base">S/W Development</h3>
+                <p class="text-xs text-slate-400">자체 개발 및 시스템 솔루션</p>
+              </div>
+            </div>
+
+            <div class="space-y-3">
+              <div class="p-3 rounded-xl bg-slate-800/60 border border-slate-700/50 flex items-center justify-between">
+                <span class="text-sm font-semibold text-slate-200">Revit / Navis Add-in 다수 개발</span>
+                <span class="text-xs px-2 py-0.5 rounded bg-emerald-900/60 text-emerald-300">컨스빔 자체 개발</span>
+              </div>
+              <div class="p-3 rounded-xl bg-slate-800/60 border border-slate-700/50 flex items-center justify-between">
+                <span class="text-sm font-semibold text-slate-200">KS MEP 표준 라이브러리 구축</span>
+                <span class="text-xs px-2 py-0.5 rounded bg-slate-700 text-slate-300">Revit/AutoCAD/Plant</span>
+              </div>
+              <div class="p-3 rounded-xl bg-slate-800/60 border border-slate-700/50 flex items-center justify-between">
+                <span class="text-sm font-semibold text-slate-200">BOM 물량집계 & 덕트 제작도</span>
+                <span class="text-xs px-2 py-0.5 rounded bg-slate-700 text-slate-300">자동 연산 솔루션</span>
+              </div>
+              <div class="p-3 rounded-xl bg-slate-800/60 border border-slate-700/50 flex items-center justify-between">
+                <span class="text-sm font-semibold text-slate-200">Web VR 기반 시설물관리(FMS)</span>
+                <span class="text-xs px-2 py-0.5 rounded bg-slate-700 text-slate-300">VR 뷰어 시스템</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ==================== Major Projects (Portfolio) ==================== -->
+    <section id="projects" class="py-24 bg-[#0e1626] border-y border-slate-800">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <div class="text-center max-w-3xl mx-auto mb-12">
+          <span class="text-xs font-bold uppercase tracking-widest text-cyan-400">Major Projects</span>
+          <h2 class="text-3xl sm:text-4xl font-extrabold text-white mt-2">주요 프로젝트 수행 실적</h2>
+          <p class="mt-3 text-slate-400 text-sm">
+            삼성전자, SK하이닉스 등 대한민국 대표 첨단 하이테크 현장에서 컨스빔이 직접 수행한 핵심 프로젝트입니다.
+          </p>
+        </div>
+
+        <!-- Filter Buttons -->
+        <div class="flex flex-wrap items-center justify-center gap-2 sm:gap-3 mb-12">
+          <button data-filter="all" class="project-filter-btn px-5 py-2.5 rounded-full text-xs sm:text-sm font-bold bg-blue-600 text-white shadow-lg shadow-blue-600/30 transition-all">전체보기</button>
+          <button data-filter="samsung" class="project-filter-btn px-5 py-2.5 rounded-full text-xs sm:text-sm font-bold bg-slate-800 text-slate-300 hover:bg-slate-700 transition-all">삼성전자 (평택 P1~P4)</button>
+          <button data-filter="hynix" class="project-filter-btn px-5 py-2.5 rounded-full text-xs sm:text-sm font-bold bg-slate-800 text-slate-300 hover:bg-slate-700 transition-all">SK하이닉스 (이천 M16)</button>
+          <button data-filter="display" class="project-filter-btn px-5 py-2.5 rounded-full text-xs sm:text-sm font-bold bg-slate-800 text-slate-300 hover:bg-slate-700 transition-all">삼성디스플레이</button>
+          <button data-filter="commercial" class="project-filter-btn px-5 py-2.5 rounded-full text-xs sm:text-sm font-bold bg-slate-800 text-slate-300 hover:bg-slate-700 transition-all">일반건설 (IKEA 등)</button>
+        </div>
+
+        <!-- Project Cards Grid -->
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-7" id="projects-container">
+          
+          <!-- Card 1: P4 -->
+          <div class="project-card rounded-3xl bg-slate-900 border border-slate-800 p-6 flex flex-col justify-between hover:border-cyan-500/60 transition-all cursor-pointer group"
+               data-category="samsung"
+               data-pjt-no="01"
+               data-title="삼성전자 평택 P4 시공 BIM MEP PROJECT"
+               data-client="삼성전자 / (주)삼성물산 / (주)삼성중공업"
+               data-partners="세보, 한양, 우현, 중원, 위프코"
+               data-role="일반설비 / 소방설비 / 3D SCAN 정합성 시공 BIM"
+               data-scope="UT설비(한양), 일반설비(우현), 소방설비(세보) 시공 BIM"
+               data-details="• P4 FAB (PH1) - 소방기계설비 (전자직발 | 세보)<br>• P4 FAB (PH1) - 2F CSF PCW / 덕트 / 폐수 설비 (삼성물산 | 한양)<br>• P4 FAB (PH1) - 1F FSF 일반배관 / 모듈렉 (삼성중공업 | 우현)<br>• P4 복합동 (PH-1) - PCW / 일반배관 (삼성물산 | 중원)<br>• P4 FAB (PH1) 1F FSF 3D SCAN 정합성 검측 (삼성중공업 | 위프코)">
+            <div>
+              <div class="flex items-center justify-between mb-4">
+                <span class="text-xs font-bold text-cyan-400 bg-cyan-950/70 border border-cyan-800/50 px-2.5 py-1 rounded-lg">삼성전자 평택캠퍼스</span>
+                <span class="text-xs font-mono text-slate-500">PJT-01</span>
+              </div>
+              <h3 class="text-lg font-bold text-white group-hover:text-cyan-400 transition-colors">삼성전자 평택 P4 시공 BIM MEP</h3>
+              <p class="text-xs text-slate-400 mt-2 line-clamp-2">
+                P4 FAB 및 복합동 소방기계, CSF PCW, 덕트, 폐수설비, 모듈렉 시공 BIM 및 3D SCAN 정합성 검측
+              </p>
+            </div>
+            <div class="pt-5 mt-5 border-t border-slate-800/80 flex items-center justify-between text-xs text-slate-400">
+              <span class="flex items-center gap-1.5"><i data-lucide="building" class="w-3.5 h-3.5 text-blue-400"></i> 삼성물산/삼성중공업</span>
+              <span class="text-cyan-400 font-semibold flex items-center gap-1 group-hover:translate-x-1 transition-transform">
+                상세보기 <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+              </span>
+            </div>
+          </div>
+
+          <!-- Card 2: P3 CSF & 일반배관 -->
+          <div class="project-card rounded-3xl bg-slate-900 border border-slate-800 p-6 flex flex-col justify-between hover:border-cyan-500/60 transition-all cursor-pointer group"
+               data-category="samsung"
+               data-pjt-no="02"
+               data-title="삼성전자 평택 P3 시공 BIM MEP PROJECT (PH3)"
+               data-client="(주)삼성물산 / (주)삼성중공업"
+               data-partners="한양, 유벡, 위프코"
+               data-role="일반배관 설비 시공 BIM 및 3D SCAN 정합성"
+               data-scope="일반배관 설비(한양, 유벡) 시공 BIM 설계 및 정합성 데이터 제작"
+               data-details="• P3 FAB (PH3) - 2F CSF 덕트 설비 (삼성물산 | 한양)<br>• P3 복합동 (PH3) - 일반배관설비 (삼성물산 | 유벡)<br>• P3 PH-3 3D SCAN 정합성 데이터 제작 및 BIM 연동 (삼성중공업 | 위프코)">
+            <div>
+              <div class="flex items-center justify-between mb-4">
+                <span class="text-xs font-bold text-cyan-400 bg-cyan-950/70 border border-cyan-800/50 px-2.5 py-1 rounded-lg">삼성전자 평택캠퍼스</span>
+                <span class="text-xs font-mono text-slate-500">PJT-02</span>
+              </div>
+              <h3 class="text-lg font-bold text-white group-hover:text-cyan-400 transition-colors">삼성전자 평택 P3 시공 BIM MEP (PH3)</h3>
+              <p class="text-xs text-slate-400 mt-2 line-clamp-2">
+                P3 FAB 2F CSF 덕트, 복합동 일반배관 설비 시공 BIM 및 3D SCAN 정합성 데이터 제작
+              </p>
+            </div>
+            <div class="pt-5 mt-5 border-t border-slate-800/80 flex items-center justify-between text-xs text-slate-400">
+              <span class="flex items-center gap-1.5"><i data-lucide="building" class="w-3.5 h-3.5 text-blue-400"></i> 삼성물산/삼성중공업</span>
+              <span class="text-cyan-400 font-semibold flex items-center gap-1 group-hover:translate-x-1 transition-transform">
+                상세보기 <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+              </span>
+            </div>
+          </div>
+
+          <!-- Card 3: P3 복합동 & 옥상 Scr -->
+          <div class="project-card rounded-3xl bg-slate-900 border border-slate-800 p-6 flex flex-col justify-between hover:border-cyan-500/60 transition-all cursor-pointer group"
+               data-category="samsung"
+               data-pjt-no="03"
+               data-title="삼성전자 평택 P3 복합동 & FAB 옥상 Scr 시공 BIM"
+               data-client="(주)삼성물산 / 삼성엔지니어링"
+               data-partners="유벡, 삼성엔지니어링"
+               data-role="일반설비 시공 BIM 설계"
+               data-scope="일반설비(유벡, 삼성엔지니어링) 시공 BIM 설계 수행"
+               data-details="• P3 복합동 (PH1~PH2) - 일반설비 (유벡, 삼성엔지니어링)<br>• P3 FAB 옥상 Scr - 일반설비 (삼성엔지니어링)">
+            <div>
+              <div class="flex items-center justify-between mb-4">
+                <span class="text-xs font-bold text-cyan-400 bg-cyan-950/70 border border-cyan-800/50 px-2.5 py-1 rounded-lg">삼성전자 평택캠퍼스</span>
+                <span class="text-xs font-mono text-slate-500">PJT-03</span>
+              </div>
+              <h3 class="text-lg font-bold text-white group-hover:text-cyan-400 transition-colors">삼성전자 평택 P3 복합동 & 옥상 Scr</h3>
+              <p class="text-xs text-slate-400 mt-2 line-clamp-2">
+                P3 복합동 PH1~PH2 및 FAB 옥상 스크러버 일반설비 정밀 BIM 설계
+              </p>
+            </div>
+            <div class="pt-5 mt-5 border-t border-slate-800/80 flex items-center justify-between text-xs text-slate-400">
+              <span class="flex items-center gap-1.5"><i data-lucide="building" class="w-3.5 h-3.5 text-blue-400"></i> 삼성물산/삼성엔지니어링</span>
+              <span class="text-cyan-400 font-semibold flex items-center gap-1 group-hover:translate-x-1 transition-transform">
+                상세보기 <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+              </span>
+            </div>
+          </div>
+
+          <!-- Card 4: P2 3D SCAN 검측 -->
+          <div class="project-card rounded-3xl bg-slate-900 border border-slate-800 p-6 flex flex-col justify-between hover:border-cyan-500/60 transition-all cursor-pointer group"
+               data-category="samsung"
+               data-pjt-no="04"
+               data-title="삼성전자 평택 P2 시공 정합성 3D SCAN 검측"
+               data-client="(주)삼성물산"
+               data-partners="삼성물산 현장 시공단"
+               data-role="시공과 BIM 설계의 정합성 검측 총괄실장"
+               data-scope="P2 FAB 3D SCAN 전공종 시공 정합성 검측 및 모델링 피드백"
+               data-details="• 대상: P2 FAB 3D SCAN 시공 정합성 검측 (PH1 ~ PH4)<br>• 전공종: Pipe, Duct, Tray, Nozzle, 제어 Duct, 케미컬, S-Gas, 소방 장비소화수 등 노즐 3D SCAN 정합성 검측 및 모델링">
+            <div>
+              <div class="flex items-center justify-between mb-4">
+                <span class="text-xs font-bold text-cyan-400 bg-cyan-950/70 border border-cyan-800/50 px-2.5 py-1 rounded-lg">삼성전자 평택캠퍼스</span>
+                <span class="text-xs font-mono text-slate-500">PJT-04</span>
+              </div>
+              <h3 class="text-lg font-bold text-white group-hover:text-cyan-400 transition-colors">삼성전자 평택 P2 시공 정합성 3D SCAN 검측</h3>
+              <p class="text-xs text-slate-400 mt-2 line-clamp-2">
+                P2 FAB PH1~PH4 전 공종(배관, 덕트, 트레이, 노즐, 케미컬, 소화수 등) 3D 레이저 스캔 정합성 검측 총괄
+              </p>
+            </div>
+            <div class="pt-5 mt-5 border-t border-slate-800/80 flex items-center justify-between text-xs text-slate-400">
+              <span class="flex items-center gap-1.5"><i data-lucide="scan" class="w-3.5 h-3.5 text-cyan-400"></i> (주)삼성물산</span>
+              <span class="text-cyan-400 font-semibold flex items-center gap-1 group-hover:translate-x-1 transition-transform">
+                상세보기 <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+              </span>
+            </div>
+          </div>
+
+          <!-- Card 5: P2 기계소방/일반설비 -->
+          <div class="project-card rounded-3xl bg-slate-900 border border-slate-800 p-6 flex flex-col justify-between hover:border-cyan-500/60 transition-all cursor-pointer group"
+               data-category="samsung"
+               data-pjt-no="05"
+               data-title="삼성전자 평택 P2 시공 BIM MEP PROJECT"
+               data-client="(주)삼성물산"
+               data-partners="파라텍, 존슨콘트롤즈, 세방, 하이에어코리아"
+               data-role="기계소방 / 일반설비 시공 BIM 총괄"
+               data-scope="기계소방 및 일반설비 시공 BIM 설계 수행"
+               data-details="• P2 FAB (PH1~PH2) - 소방 (존슨콘트롤즈, 세방)<br>• P2 GCS (PH1~PH2) - 소방 (파라텍) / 설비 (하이에어코리아)<br>• P2 옥외배관 (PH1) - 소방 (파라텍)">
+            <div>
+              <div class="flex items-center justify-between mb-4">
+                <span class="text-xs font-bold text-cyan-400 bg-cyan-950/70 border border-cyan-800/50 px-2.5 py-1 rounded-lg">삼성전자 평택캠퍼스</span>
+                <span class="text-xs font-mono text-slate-500">PJT-05</span>
+              </div>
+              <h3 class="text-lg font-bold text-white group-hover:text-cyan-400 transition-colors">삼성전자 평택 P2 기계소방 & 일반설비 BIM</h3>
+              <p class="text-xs text-slate-400 mt-2 line-clamp-2">
+                P2 FAB, GCS 및 옥외배관 소방기계 및 설비 시공 BIM 총괄
+              </p>
+            </div>
+            <div class="pt-5 mt-5 border-t border-slate-800/80 flex items-center justify-between text-xs text-slate-400">
+              <span class="flex items-center gap-1.5"><i data-lucide="building" class="w-3.5 h-3.5 text-blue-400"></i> (주)삼성물산</span>
+              <span class="text-cyan-400 font-semibold flex items-center gap-1 group-hover:translate-x-1 transition-transform">
+                상세보기 <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+              </span>
+            </div>
+          </div>
+
+          <!-- Card 6: P1 역설계 -->
+          <div class="project-card rounded-3xl bg-slate-900 border border-slate-800 p-6 flex flex-col justify-between hover:border-cyan-500/60 transition-all cursor-pointer group"
+               data-category="samsung"
+               data-pjt-no="06"
+               data-title="삼성전자 평택 P1 역설계 BIM MEP PROJECT"
+               data-client="삼성전자"
+               data-partners="삼성전자 설비기획팀"
+               data-role="역설계 BIM 설계 부문 총괄실장"
+               data-scope="3D Scan 기반 역설계 BIM MEP 모델링 및 속성정보 DB 입력"
+               data-details="• P1 BIM 설계가 누락된 RM 내부 3D Scan 정밀 작업<br>• 3D Scan 기반 BIM 설계 모델링 (Revit MEP)<br>• 모델링 기반 삼성전자 사내 정보 체계 입력<br>• 담당: P1 주요 건물 (FAB / GCS / UT / CT / Green / 옥상 Scr.)">
+            <div>
+              <div class="flex items-center justify-between mb-4">
+                <span class="text-xs font-bold text-cyan-400 bg-cyan-950/70 border border-cyan-800/50 px-2.5 py-1 rounded-lg">삼성전자 평택캠퍼스</span>
+                <span class="text-xs font-mono text-slate-500">PJT-06</span>
+              </div>
+              <h3 class="text-lg font-bold text-white group-hover:text-cyan-400 transition-colors">삼성전자 평택 P1 역설계 BIM MEP</h3>
+              <p class="text-xs text-slate-400 mt-2 line-clamp-2">
+                P1 FAB, GCS, UT, CT, Green, 옥상 Scr. 3D Scan 기반 역설계 및 모델링 DB 구축
+              </p>
+            </div>
+            <div class="pt-5 mt-5 border-t border-slate-800/80 flex items-center justify-between text-xs text-slate-400">
+              <span class="flex items-center gap-1.5"><i data-lucide="building" class="w-3.5 h-3.5 text-blue-400"></i> 삼성전자</span>
+              <span class="text-cyan-400 font-semibold flex items-center gap-1 group-hover:translate-x-1 transition-transform">
+                상세보기 <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+              </span>
+            </div>
+          </div>
+
+          <!-- Card 7: SK Hynix M16 EUV -->
+          <div class="project-card rounded-3xl bg-slate-900 border border-slate-800 p-6 flex flex-col justify-between hover:border-cyan-500/60 transition-all cursor-pointer group"
+               data-category="hynix"
+               data-pjt-no="07"
+               data-title="SK 하이닉스 이천 M16 EUV 시공 BIM PROJECT"
+               data-client="SKEP | 한양이엔지"
+               data-partners="한양이엔지"
+               data-role="UT공종 / 케미컬 시공 / S-GAS BIM 설계"
+               data-scope="한양이엔지 EUV 시공 BIM 설계 및 특수가스 공종"
+               data-details="• M16 EUV동 Bulk GAS / PGS / ALMS / 케미컬 / S-GAS 관련 공종 정밀 시공 BIM 설계">
+            <div>
+              <div class="flex items-center justify-between mb-4">
+                <span class="text-xs font-bold text-amber-400 bg-amber-950/70 border border-amber-800/50 px-2.5 py-1 rounded-lg">SK하이닉스 이천캠퍼스</span>
+                <span class="text-xs font-mono text-slate-500">PJT-07</span>
+              </div>
+              <h3 class="text-lg font-bold text-white group-hover:text-amber-400 transition-colors">SK하이닉스 M16 EUV 시공 BIM</h3>
+              <p class="text-xs text-slate-400 mt-2 line-clamp-2">
+                M16 EUV동 Bulk GAS, PGS, ALMS, 케미컬, S-GAS 시공 BIM 설계
+              </p>
+            </div>
+            <div class="pt-5 mt-5 border-t border-slate-800/80 flex items-center justify-between text-xs text-slate-400">
+              <span class="flex items-center gap-1.5"><i data-lucide="building" class="w-3.5 h-3.5 text-amber-400"></i> SKEP / 한양이엔지</span>
+              <span class="text-cyan-400 font-semibold flex items-center gap-1 group-hover:translate-x-1 transition-transform">
+                상세보기 <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+              </span>
+            </div>
+          </div>
+
+          <!-- Card 8: SK Hynix M16 5D/BIM Hookup -->
+          <div class="project-card rounded-3xl bg-slate-900 border border-slate-800 p-6 flex flex-col justify-between hover:border-cyan-500/60 transition-all cursor-pointer group"
+               data-category="hynix"
+               data-pjt-no="08"
+               data-title="SK 하이닉스 이천 M16 5D/BIM Hookup 설계 PROJECT"
+               data-client="SK 하이닉스"
+               data-partners="한양이엔지"
+               data-role="UT 공종 5D/BIM Hookup 설계"
+               data-scope="M16 DIFF / IMP 구역의 5D/BIM Hookup 설계 전담"
+               data-details="• M16 한양이엔지 5D/BIM Hookup 설계<br>• DIFF / IMP 핵심 구역의 고정밀 5D/BIM Hookup 상세 설계">
+            <div>
+              <div class="flex items-center justify-between mb-4">
+                <span class="text-xs font-bold text-amber-400 bg-amber-950/70 border border-amber-800/50 px-2.5 py-1 rounded-lg">SK하이닉스 이천캠퍼스</span>
+                <span class="text-xs font-mono text-slate-500">PJT-08</span>
+              </div>
+              <h3 class="text-lg font-bold text-white group-hover:text-amber-400 transition-colors">SK하이닉스 M16 5D/BIM Hookup 설계</h3>
+              <p class="text-xs text-slate-400 mt-2 line-clamp-2">
+                M16 핵심 공정 구역인 DIFF 및 IMP 라인의 UT 공종 5D/BIM Hookup 상세 설계
+              </p>
+            </div>
+            <div class="pt-5 mt-5 border-t border-slate-800/80 flex items-center justify-between text-xs text-slate-400">
+              <span class="flex items-center gap-1.5"><i data-lucide="building" class="w-3.5 h-3.5 text-amber-400"></i> SK 하이닉스</span>
+              <span class="text-cyan-400 font-semibold flex items-center gap-1 group-hover:translate-x-1 transition-transform">
+                상세보기 <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+              </span>
+            </div>
+          </div>
+
+          <!-- Card 9: SK Hynix M16 Ph-1C/Ph-2 -->
+          <div class="project-card rounded-3xl bg-slate-900 border border-slate-800 p-6 flex flex-col justify-between hover:border-cyan-500/60 transition-all cursor-pointer group"
+               data-category="hynix"
+               data-pjt-no="09"
+               data-title="SK 하이닉스 M16 Ph-1C/Ph-2 시공 BIM PROJECT"
+               data-client="SKEP"
+               data-partners="한양이엔지"
+               data-role="UT 공종 GAS/PGS 시공 BIM 설계 실장"
+               data-scope="M16 Ph-1C ~ Ph-2 한양이엔지 시공 BIM 설계"
+               data-details="• M16 한양이엔지 시공 BIM 설계 (Ph-1C~ Ph-2)<br>• Bulk GAS / PGS / ALMS 등 특수 가스 배관 라인 시공 BIM">
+            <div>
+              <div class="flex items-center justify-between mb-4">
+                <span class="text-xs font-bold text-amber-400 bg-amber-950/70 border border-amber-800/50 px-2.5 py-1 rounded-lg">SK하이닉스 이천캠퍼스</span>
+                <span class="text-xs font-mono text-slate-500">PJT-09</span>
+              </div>
+              <h3 class="text-lg font-bold text-white group-hover:text-amber-400 transition-colors">SK하이닉스 M16 Ph-1C/Ph-2 시공 BIM</h3>
+              <p class="text-xs text-slate-400 mt-2 line-clamp-2">
+                UT 공종 Bulk GAS, PGS, ALMS 배관 시공 BIM 설계 총괄
+              </p>
+            </div>
+            <div class="pt-5 mt-5 border-t border-slate-800/80 flex items-center justify-between text-xs text-slate-400">
+              <span class="flex items-center gap-1.5"><i data-lucide="building" class="w-3.5 h-3.5 text-amber-400"></i> SKEP</span>
+              <span class="text-cyan-400 font-semibold flex items-center gap-1 group-hover:translate-x-1 transition-transform">
+                상세보기 <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+              </span>
+            </div>
+          </div>
+
+          <!-- Card 10: Samsung Display A6 8-2L -->
+          <div class="project-card rounded-3xl bg-slate-900 border border-slate-800 p-6 flex flex-col justify-between hover:border-cyan-500/60 transition-all cursor-pointer group"
+               data-category="display"
+               data-pjt-no="10"
+               data-title="삼성디스플레이 아산 탕정 A6 8-2L 시공 BIM MEP"
+               data-client="삼성디스플레이 / 대아이앤씨"
+               data-partners="대아이앤씨 (소방 시공사)"
+               data-role="소방기계 설비 시공 BIM"
+               data-scope="A6 8-2L 소방기계 설비 시공 BIM 설계"
+               data-details="• 아산 1캠퍼스 8라인 / 7라인 인접 A6 8-2L 건물<br>• 소방기계 설비 (직발 | 대아이앤씨) 시공 BIM 설계">
+            <div>
+              <div class="flex items-center justify-between mb-4">
+                <span class="text-xs font-bold text-blue-400 bg-blue-950/70 border border-blue-800/50 px-2.5 py-1 rounded-lg">삼성디스플레이 탕정</span>
+                <span class="text-xs font-mono text-slate-500">PJT-10</span>
+              </div>
+              <h3 class="text-lg font-bold text-white group-hover:text-blue-400 transition-colors">삼성디스플레이 아산 탕정 A6 8-2L 소방 BIM</h3>
+              <p class="text-xs text-slate-400 mt-2 line-clamp-2">
+                A6 8-2L 소방기계 설비 정밀 시공 BIM 설계
+              </p>
+            </div>
+            <div class="pt-5 mt-5 border-t border-slate-800/80 flex items-center justify-between text-xs text-slate-400">
+              <span class="flex items-center gap-1.5"><i data-lucide="building" class="w-3.5 h-3.5 text-blue-400"></i> 삼성디스플레이/대아이앤씨</span>
+              <span class="text-cyan-400 font-semibold flex items-center gap-1 group-hover:translate-x-1 transition-transform">
+                상세보기 <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+              </span>
+            </div>
+          </div>
+
+          <!-- Card 11: IKEA 동부산점 -->
+          <div class="project-card rounded-3xl bg-slate-900 border border-slate-800 p-6 flex flex-col justify-between hover:border-cyan-500/60 transition-all cursor-pointer group"
+               data-category="commercial"
+               data-pjt-no="11"
+               data-title="IKEA 동부산점 기계설비/소방설비 BIM MEP PROJECT"
+               data-client="이케아 코리아 (IKEA Korea)"
+               data-partners="시공 협력사"
+               data-role="기계설비/소방설비 시공 BIM 설계 및 시공 Review"
+               data-scope="기계/소방 전 공종 시공 BIM 및 현장 프로젝트 매니징"
+               data-details="• 기계설비/소방설비 공종의 시공 BIM 설계 수행 (Revit MEP / Navisworks)<br>• 전반적인 시공 BIM 설계 프로젝트 매니징(PM)<br>• 시공 BIM 설계 및 BIM 기반 시공성 Review">
+            <div>
+              <div class="flex items-center justify-between mb-4">
+                <span class="text-xs font-bold text-emerald-400 bg-emerald-950/70 border border-emerald-800/50 px-2.5 py-1 rounded-lg">일반건설 대형리테일</span>
+                <span class="text-xs font-mono text-slate-500">PJT-11</span>
+              </div>
+              <h3 class="text-lg font-bold text-white group-hover:text-emerald-400 transition-colors">IKEA 동부산점 기계설비/소방설비 BIM MEP</h3>
+              <p class="text-xs text-slate-400 mt-2 line-clamp-2">
+                대형 리테일 매장 기계·소방 설비 시공 BIM 설계 및 시공성 Review 총괄
+              </p>
+            </div>
+            <div class="pt-5 mt-5 border-t border-slate-800/80 flex items-center justify-between text-xs text-slate-400">
+              <span class="flex items-center gap-1.5"><i data-lucide="shopping-bag" class="w-3.5 h-3.5 text-emerald-400"></i> 이케아 코리아</span>
+              <span class="text-cyan-400 font-semibold flex items-center gap-1 group-hover:translate-x-1 transition-transform">
+                상세보기 <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+              </span>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ==================== Location & Contact Section ==================== -->
+    <section id="location" class="py-24 bg-[#0b1120]">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <div class="grid lg:grid-cols-12 gap-12">
+          
+          <!-- Contact Info & Map Details -->
+          <div class="lg:col-span-5 space-y-6">
+            <span class="text-xs font-bold uppercase tracking-widest text-cyan-400">Location & Contact</span>
+            <h2 class="text-3xl sm:text-4xl font-extrabold text-white">오시는 길 & 연락처</h2>
+            <p class="text-sm text-slate-300 leading-relaxed">
+              컨스빔(주)은 삼성전자 평택캠퍼스와 인접한 평택 고덕신도시에 위치하여 현장과 실시간 소통 및 기동력 있는 현장 지원을 수행합니다.
+            </p>
+
+            <div class="space-y-4 pt-2">
+              
+              <div class="p-5 rounded-2xl bg-slate-900 border border-slate-800 flex items-start gap-4">
+                <div class="w-10 h-10 rounded-xl bg-blue-600/20 text-cyan-400 flex items-center justify-center shrink-0">
+                  <i data-lucide="map-pin" class="w-5 h-5"></i>
+                </div>
+                <div>
+                  <p class="text-xs text-slate-400 font-semibold">사무실 주소</p>
+                  <p class="text-sm font-bold text-white mt-0.5">경기도 평택시 고덕중앙로 322, 에이스에스타워 403호</p>
+                  <div class="flex gap-2 mt-3">
+                    <a href="https://map.naver.com/v5/search/%EA%B2%BD%EA%B8%B0%EB%8F%84%20%ED%8F%89%ED%83%9D%EC%8B%9C%20%EA%B3%A0%EB%8D%95%EC%A4%91%EC%95%99%EB%A1%9C%20322" 
+                       target="_blank" rel="noopener noreferrer" 
+                       class="px-3 py-1 rounded-lg text-xs font-semibold bg-emerald-950/60 text-emerald-400 border border-emerald-800/60 hover:bg-emerald-900/60 transition-colors flex items-center gap-1">
+                      <i data-lucide="external-link" class="w-3 h-3"></i> 네이버지도
+                    </a>
+                    <a href="https://map.kakao.com/link/search/경기도 평택시 고덕중앙로 322" 
+                       target="_blank" rel="noopener noreferrer" 
+                       class="px-3 py-1 rounded-lg text-xs font-semibold bg-yellow-950/60 text-yellow-400 border border-yellow-800/60 hover:bg-yellow-900/60 transition-colors flex items-center gap-1">
+                      <i data-lucide="external-link" class="w-3 h-3"></i> 카카오맵
+                    </a>
+                  </div>
+                </div>
+              </div>
+
+              <div class="p-5 rounded-2xl bg-slate-900 border border-slate-800 flex items-start gap-4">
+                <div class="w-10 h-10 rounded-xl bg-cyan-600/20 text-cyan-400 flex items-center justify-center shrink-0">
+                  <i data-lucide="phone" class="w-5 h-5"></i>
+                </div>
+                <div>
+                  <p class="text-xs text-slate-400 font-semibold">대표 직통 연락처</p>
+                  <a href="tel:01027410282" class="text-sm font-bold text-white hover:text-cyan-400 transition-colors mt-0.5 block">
+                    010-2741-0282 (성치영 대표이사)
+                  </a>
+                  <p class="text-xs text-slate-500 mt-1">프로젝트 협업, 긴급 시공 도면, 견적 상담 환영</p>
+                </div>
+              </div>
+
+              <div class="p-5 rounded-2xl bg-slate-900 border border-slate-800 flex items-start gap-4">
+                <div class="w-10 h-10 rounded-xl bg-indigo-600/20 text-indigo-400 flex items-center justify-center shrink-0">
+                  <i data-lucide="mail" class="w-5 h-5"></i>
+                </div>
+                <div>
+                  <p class="text-xs text-slate-400 font-semibold">공식 이메일</p>
+                  <a href="mailto:allwinbim@consbim.co.kr" class="text-sm font-bold text-white hover:text-cyan-400 transition-colors mt-0.5 block">
+                    allwinbim@consbim.co.kr
+                  </a>
+                  <p class="text-xs text-slate-500 mt-1">도면 자료 및 RFP 송부 전용</p>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+          <!-- Inquiry Form -->
+          <div class="lg:col-span-7" id="contact">
+            <div class="rounded-3xl bg-slate-900 border border-slate-800 p-8 sm:p-10 shadow-2xl">
+              <h3 class="text-2xl font-bold text-white mb-2">프로젝트 상담 & 견적 의뢰</h3>
+              <p class="text-xs sm:text-sm text-slate-400 mb-6">
+                진행 중이신 하이테크/일반설비 프로젝트의 BIM 설계, 3D Scan 검측 요건을 남겨주시면 검토 후 즉시 연락드립니다.
+              </p>
+
+              <form id="bim-inquiry-form" class="space-y-4" novalidate>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  <div>
+                    <label for="company_name" class="block text-xs font-semibold text-slate-300 mb-1">회사명 / 소속 *</label>
+                    <input type="text" id="company_name" required placeholder="예: (주)엔지니어링" 
+                           class="w-full px-4 py-3 rounded-xl bg-slate-800 border border-slate-700 text-white placeholder-slate-500 text-sm focus:outline-none focus:border-cyan-400 transition-colors">
+                    <p class="text-xs text-red-400 mt-1 hidden" id="err-company">회사명을 입력해주세요.</p>
+                  </div>
+                  <div>
+                    <label for="contact_person" class="block text-xs font-semibold text-slate-300 mb-1">담당자 성함 및 직급 *</label>
+                    <input type="text" id="contact_person" required placeholder="예: 홍길동 부장" 
+                           class="w-full px-4 py-3 rounded-xl bg-slate-800 border border-slate-700 text-white placeholder-slate-500 text-sm focus:outline-none focus:border-cyan-400 transition-colors">
+                    <p class="text-xs text-red-400 mt-1 hidden" id="err-person">담당자 성함을 입력해주세요.</p>
+                  </div>
+                </div>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  <div>
+                    <label for="user_phone" class="block text-xs font-semibold text-slate-300 mb-1">연락처 *</label>
+                    <input type="tel" id="user_phone" required placeholder="010-0000-0000" 
+                           class="w-full px-4 py-3 rounded-xl bg-slate-800 border border-slate-700 text-white placeholder-slate-500 text-sm focus:outline-none focus:border-cyan-400 transition-colors">
+                    <p class="text-xs text-red-400 mt-1 hidden" id="err-phone">유효한 연락처를 입력해주세요.</p>
+                  </div>
+                  <div>
+                    <label for="user_email" class="block text-xs font-semibold text-slate-300 mb-1">이메일 *</label>
+                    <input type="email" id="user_email" required placeholder="manager@company.co.kr" 
+                           class="w-full px-4 py-3 rounded-xl bg-slate-800 border border-slate-700 text-white placeholder-slate-500 text-sm focus:outline-none focus:border-cyan-400 transition-colors">
+                    <p class="text-xs text-red-400 mt-1 hidden" id="err-email">유효한 이메일을 입력해주세요.</p>
+                  </div>
+                </div>
+
+                <div>
+                  <label for="pjt_type" class="block text-xs font-semibold text-slate-300 mb-1">의뢰 분야 선택</label>
+                  <select id="pjt_type" class="w-full px-4 py-3 rounded-xl bg-slate-800 border border-slate-700 text-white text-sm focus:outline-none focus:border-cyan-400 transition-colors">
+                    <option value="semiconductor">반도체 Hookup / FAB 시공 BIM</option>
+                    <option value="mep">일반건설 MEP 기계·소방설비 BIM</option>
+                    <option value="scan">3D Scan 데이터 취득 및 시공 정합성 검측</option>
+                    <option value="reverse">기존 건물 / 설비 역설계 BIM</option>
+                    <option value="software">Revit/Navisworks Add-in 개발 및 솔루션</option>
+                  </select>
+                </div>
+
+                <div>
+                  <label for="pjt_desc" class="block text-xs font-semibold text-slate-300 mb-1">프로젝트 개요 및 상세 요청 사항 *</label>
+                  <textarea id="pjt_desc" rows="4" required placeholder="공종(배관, 덕트, 소방, 케미컬 등), 현장 위치, 목표 납기 일정, 필요 도면 범위 등을 기재해주시면 상세한 기술 검토가 가능합니다." 
+                            class="w-full px-4 py-3 rounded-xl bg-slate-800 border border-slate-700 text-white placeholder-slate-500 text-sm focus:outline-none focus:border-cyan-400 transition-colors resize-none"></textarea>
+                  <p class="text-xs text-red-400 mt-1 hidden" id="err-desc">상세 요청 사항을 입력해주세요.</p>
+                </div>
+
+                <button type="submit" class="w-full py-4 rounded-xl bg-gradient-to-r from-blue-600 to-cyan-500 hover:from-blue-500 hover:to-cyan-400 text-white font-bold text-sm shadow-lg shadow-blue-500/25 transition-all">
+                  프로젝트 의뢰 및 견적 요청 접수
+                </button>
+              </form>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+  </main>
+
+  <!-- ==================== Footer ==================== -->
+  <footer class="bg-[#070b14] text-slate-400 py-12 border-t border-slate-800 text-xs">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
+      
+      <div class="flex flex-col md:flex-row items-start md:items-center justify-between gap-6 pb-8 border-b border-slate-800/80">
+        <div class="flex items-center gap-3">
+          <div class="w-8 h-8 rounded-lg bg-blue-600 flex items-center justify-center text-white font-black text-sm">C</div>
+          <div>
+            <span class="text-white font-bold text-base tracking-wider">CONSBIM</span>
+            <span class="text-slate-500 ml-2">컨스빔 주식회사</span>
+          </div>
+        </div>
+        <div class="flex flex-wrap gap-6 text-slate-400">
+          <a href="#about" class="hover:text-cyan-400 transition-colors">회사소개</a>
+          <a href="#capabilities" class="hover:text-cyan-400 transition-colors">직무역량</a>
+          <a href="#projects" class="hover:text-cyan-400 transition-colors">주요실적</a>
+          <a href="#contact" class="hover:text-cyan-400 transition-colors">견적의뢰</a>
+        </div>
+      </div>
+
+      <div class="grid sm:grid-cols-2 md:grid-cols-4 gap-6 text-[13px] text-slate-400 leading-relaxed">
+        <div>
+          <p class="text-slate-300 font-bold mb-1">상호</p>
+          <p>컨스빔 주식회사 (CONSBIM)</p>
+          <p>대표이사: 성치영</p>
+        </div>
+        <div>
+          <p class="text-slate-300 font-bold mb-1">본사 소재지</p>
+          <p>경기도 평택시 고덕중앙로 322, 에이스에스타워 403호</p>
+        </div>
+        <div>
+          <p class="text-slate-300 font-bold mb-1">문의 / 연락</p>
+          <p>Mobile: 010-2741-0282</p>
+          <p>Email: allwinbim@consbim.co.kr</p>
+        </div>
+        <div>
+          <p class="text-slate-300 font-bold mb-1">공식 웹사이트</p>
+          <p class="text-cyan-400">www.consbim.co.kr</p>
+          <p class="text-slate-500 mt-2">&copy; CONSBIM Corp. All rights reserved.</p>
+        </div>
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- ==================== Modal: Project Details ==================== -->
+  <div id="project-detail-modal" class="fixed inset-0 z-50 bg-[#070b14]/80 backdrop-blur-md hidden items-center justify-center p-4">
+    <div class="bg-slate-900 border border-slate-700/80 rounded-3xl max-w-xl w-full p-6 sm:p-8 relative shadow-2xl overflow-hidden animate-in fade-in zoom-in duration-200">
+      
+      <button id="close-modal-btn" class="absolute top-5 right-5 p-2 rounded-full text-slate-400 hover:text-white hover:bg-slate-800 transition-colors">
+        <i data-lucide="x" class="w-5 h-5"></i>
+      </button>
+
+      <div class="flex items-center gap-2 mb-2">
+        <span id="modal-pjt-no" class="px-2 py-0.5 rounded text-[11px] font-mono font-bold bg-blue-900/60 text-cyan-300 border border-blue-700/50">PJT-01</span>
+        <span id="modal-category" class="text-xs font-semibold text-slate-400">하이테크 반도체</span>
+      </div>
+
+      <h3 id="modal-title" class="text-xl sm:text-2xl font-bold text-white mb-4">프로젝트명</h3>
+
+      <div class="space-y-4 mb-6">
+        <div class="p-4 rounded-2xl bg-slate-800/60 border border-slate-700/50 space-y-2 text-xs">
+          <div class="flex justify-between items-start gap-4">
+            <span class="text-slate-400 shrink-0">발주처</span>
+            <span id="modal-client" class="text-white font-medium text-right">-</span>
+          </div>
+          <div class="flex justify-between items-start gap-4">
+            <span class="text-slate-400 shrink-0">주요 협력사</span>
+            <span id="modal-partners" class="text-cyan-300 font-medium text-right">-</span>
+          </div>
+          <div class="flex justify-between items-start gap-4">
+            <span class="text-slate-400 shrink-0">담당 역할</span>
+            <span id="modal-role" class="text-white font-medium text-right">-</span>
+          </div>
+        </div>
+
+        <div>
+          <h4 class="text-xs font-bold text-slate-300 uppercase tracking-wider mb-2">상세 수행 내용</h4>
+          <div id="modal-details" class="text-xs sm:text-sm text-slate-300 leading-relaxed bg-slate-950/60 p-4 rounded-2xl border border-slate-800 space-y-1">
+            -
+          </div>
+        </div>
+      </div>
+
+      <div class="flex gap-3">
+        <button id="modal-inquire-btn" class="flex-1 py-3 rounded-xl bg-gradient-to-r from-blue-600 to-cyan-500 hover:from-blue-500 hover:to-cyan-400 text-white font-bold text-xs sm:text-sm transition-all shadow-lg shadow-blue-500/20">
+          이 프로젝트와 동일 조건 문의하기
+        </button>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ==================== Modal: Inquiry Complete Feedback ==================== -->
+  <div id="inquiry-feedback-modal" class="fixed inset-0 z-50 bg-[#070b14]/80 backdrop-blur-md hidden items-center justify-center p-4">
+    <div class="bg-slate-900 border border-slate-700 rounded-3xl max-w-md w-full p-8 text-center shadow-2xl">
+      <div class="w-14 h-14 rounded-full bg-cyan-500/20 text-cyan-400 flex items-center justify-center mx-auto mb-4 border border-cyan-500/30">
+        <i data-lucide="check" class="w-8 h-8"></i>
+      </div>
+      <h3 class="text-xl font-bold text-white mb-2">프로젝트 상담 접수 완료</h3>
+      <p class="text-sm text-slate-300 mb-6 leading-relaxed">
+        남겨주신 프로젝트 정보가 컨스빔(주) 엔지니어링팀에 정상 접수되었습니다. <br>
+        24시간 이내 성치영 대표이사 또는 전담 PM이 직접 유선 및 이메일로 연락드리겠습니다.
+      </p>
+      <button id="close-feedback-btn" class="w-full py-3.5 rounded-xl bg-cyan-600 hover:bg-cyan-500 text-white font-bold text-sm transition-colors">
+        확인
+      </button>
+    </div>
+  </div>
+
+  <!-- ==================== Scripts ==================== -->
+  <script>
+    // Lucide Icons Initialization
+    lucide.createIcons();
+
+    // Mobile Navbar Toggle
+    const mobileToggle = document.getElementById('mobile-toggle');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const mobileLinks = document.querySelectorAll('.mobile-link');
+
+    mobileToggle.addEventListener('click', () => {
+      mobileMenu.classList.toggle('hidden');
+    });
+
+    mobileLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        mobileMenu.classList.add('hidden');
+      });
+    });
+
+    // Project Filtering
+    const filterButtons = document.querySelectorAll('.project-filter-btn');
+    const projectCards = document.querySelectorAll('.project-card');
+
+    filterButtons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        filterButtons.forEach(b => {
+          b.classList.remove('bg-blue-600', 'text-white', 'shadow-lg', 'shadow-blue-600/30');
+          b.classList.add('bg-slate-800', 'text-slate-300');
+        });
+
+        btn.classList.add('bg-blue-600', 'text-white', 'shadow-lg', 'shadow-blue-600/30');
+        btn.classList.remove('bg-slate-800', 'text-slate-300');
+
+        const filter = btn.getAttribute('data-filter');
+
+        projectCards.forEach(card => {
+          if (filter === 'all' || card.getAttribute('data-category') === filter) {
+            card.classList.remove('hidden');
+          } else {
+            card.classList.add('hidden');
+          }
+        });
+      });
+    });
+
+    // Project Detail Modal Logic
+    const pjtModal = document.getElementById('project-detail-modal');
+    const closeModalBtn = document.getElementById('close-modal-btn');
+    const modalInquireBtn = document.getElementById('modal-inquire-btn');
+
+    projectCards.forEach(card => {
+      card.addEventListener('click', () => {
+        document.getElementById('modal-pjt-no').textContent = card.getAttribute('data-pjt-no') ? `PJT-${card.getAttribute('data-pjt-no')}` : 'PJT';
+        document.getElementById('modal-category').textContent = card.querySelector('.text-xs.font-bold').textContent;
+        document.getElementById('modal-title').textContent = card.getAttribute('data-title');
+        document.getElementById('modal-client').textContent = card.getAttribute('data-client');
+        document.getElementById('modal-partners').textContent = card.getAttribute('data-partners');
+        document.getElementById('modal-role').textContent = card.getAttribute('data-role');
+        document.getElementById('modal-details').innerHTML = card.getAttribute('data-details');
+
+        pjtModal.classList.remove('hidden');
+        pjtModal.classList.add('flex');
+      });
+    });
+
+    const closeProjectModal = () => {
+      pjtModal.classList.add('hidden');
+      pjtModal.classList.remove('flex');
+    };
+
+    closeModalBtn.addEventListener('click', closeProjectModal);
+    pjtModal.addEventListener('click', (e) => {
+      if (e.target === pjtModal) closeProjectModal();
+    });
+
+    modalInquireBtn.addEventListener('click', () => {
+      const pjtTitle = document.getElementById('modal-title').textContent;
+      closeProjectModal();
+      const pjtDesc = document.getElementById('pjt_desc');
+      pjtDesc.value = `[${pjtTitle}] 관련 유사 프로젝트 기술 문의 및 견적 요청드립니다.\n- 요청 세부내용: `;
+      document.getElementById('contact').scrollIntoView({ behavior: 'smooth' });
+      pjtDesc.focus();
+    });
+
+    // Form Validation & Feedback Modal
+    const inquiryForm = document.getElementById('bim-inquiry-form');
+    const feedbackModal = document.getElementById('inquiry-feedback-modal');
+    const closeFeedbackBtn = document.getElementById('close-feedback-btn');
+
+    inquiryForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+
+      let valid = true;
+      const company = document.getElementById('company_name');
+      const person = document.getElementById('contact_person');
+      const phone = document.getElementById('user_phone');
+      const email = document.getElementById('user_email');
+      const desc = document.getElementById('pjt_desc');
+
+      // Validation logic
+      if (!company.value.trim()) {
+        document.getElementById('err-company').classList.remove('hidden');
+        valid = false;
+      } else {
+        document.getElementById('err-company').classList.add('hidden');
+      }
+
+      if (!person.value.trim()) {
+        document.getElementById('err-person').classList.remove('hidden');
+        valid = false;
+      } else {
+        document.getElementById('err-person').classList.add('hidden');
+      }
+
+      if (!phone.value.trim() || phone.value.length < 8) {
+        document.getElementById('err-phone').classList.remove('hidden');
+        valid = false;
+      } else {
+        document.getElementById('err-phone').classList.add('hidden');
+      }
+
+      const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (!emailPattern.test(email.value.trim())) {
+        document.getElementById('err-email').classList.remove('hidden');
+        valid = false;
+      } else {
+        document.getElementById('err-email').classList.add('hidden');
+      }
+
+      if (!desc.value.trim()) {
+        document.getElementById('err-desc').classList.remove('hidden');
+        valid = false;
+      } else {
+        document.getElementById('err-desc').classList.add('hidden');
+      }
+
+      if (valid) {
+        feedbackModal.classList.remove('hidden');
+        feedbackModal.classList.add('flex');
+        inquiryForm.reset();
+      }
+    });
+
+    closeFeedbackBtn.addEventListener('click', () => {
+      feedbackModal.classList.add('hidden');
+      feedbackModal.classList.remove('flex');
+    });
+  </script>
+</body>
+</html>
